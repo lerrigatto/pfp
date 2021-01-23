@@ -21,3 +21,11 @@ def mergeSort(l:List[Int]):List[Int] = {
     merge(sx,dx)
   }
 }
+
+def merge2(a:List[Int], b:List[Int]):List[Int] = (a,b) match {
+  case (Nil,Nil) => Nil
+  case (l, Nil) => l
+  case (Nil, l) => l
+  case (ha::ta, hb::tb) if (ha<hb) => ha :: merge2(ta,b)
+  case (ha::ta, hb::tb)            => hb :: merge2(a,tb)
+}
